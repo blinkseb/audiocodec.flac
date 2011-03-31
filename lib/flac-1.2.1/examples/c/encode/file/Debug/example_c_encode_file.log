@@ -1,0 +1,37 @@
+﻿La génération a démarré 31/03/2011 21:57:20.
+     1>Projet "C:\Users\Seb\Prog\xbmc\audiocodec.flac\lib\flac-1.2.1\examples\c\encode\file\example_c_encode_file.vcxproj" sur le nœud 2 (build cible(s)).
+     1>InitializeBuildStatus:
+         Mise à jour de l'horodatage "Debug\example_c_encode_file.unsuccessfulbuild".
+       ClCompile:
+         Toutes les sorties sont à jour.
+       ManifestResourceCompile:
+         Toutes les sorties sont à jour.
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\..\..\obj\debug\bin\example_c_encode_file.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:uuid.lib /MANIFEST /ManifestFile:"Debug\example_c_encode_file.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Seb\Prog\xbmc\audiocodec.flac\lib\flac-1.2.1\obj\debug\bin\example_c_encode_file.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\..\..\obj\debug\bin\example_c_encode_file.lib" /MACHINE:X86 Debug\example_c_encode_file.exe.embed.manifest.res
+         Debug\main.obj
+         "C:\Users\Seb\Prog\xbmc\audiocodec.flac\lib\flac-1.2.1\obj\debug\lib\libFLAC_static.lib"
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_delete référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__metadata_object_delete référencé dans la fonction _main
+     1>main.obj : error LNK2001: symbole externe non résolu _FLAC__StreamEncoderStateString
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_get_state référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_finish référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_process_interleaved référencé dans la fonction _main
+     1>main.obj : error LNK2001: symbole externe non résolu _FLAC__StreamEncoderInitStatusString
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_init_file référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_set_metadata référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__metadata_object_vorbiscomment_append_comment référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__metadata_object_vorbiscomment_entry_from_name_value_pair référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__metadata_object_new référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_set_total_samples_estimate référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_set_sample_rate référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_set_bits_per_sample référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_set_channels référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_set_compression_level référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_set_verify référencé dans la fonction _main
+     1>main.obj : error LNK2019: symbole externe non résolu _FLAC__stream_encoder_new référencé dans la fonction _main
+     1>..\..\..\..\obj\debug\bin\example_c_encode_file.exe : fatal error LNK1120: 19 externes non résolus
+     1>Génération du projet "C:\Users\Seb\Prog\xbmc\audiocodec.flac\lib\flac-1.2.1\examples\c\encode\file\example_c_encode_file.vcxproj" terminée (build cible(s)) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+Temps écoulé 00:00:00.80
