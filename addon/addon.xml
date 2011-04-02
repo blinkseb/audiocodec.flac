@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="audiocodec.flac"
+  version="1.0.0"
+  name="Flac"
+  provider-name="Team XBMC">
+  <extension
+    point="xbmc.player.audiocodec"
+    library_linux="audiocodec_flac.so"
+    file_exts="flac"
+  />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">FLAC audio decoder</summary>
+    <description lang="en">Support FLAC audio through libflac</description>
+    <platform>linux windx wingl</platform>
+  </extension>
+</addon>
