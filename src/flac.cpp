@@ -27,6 +27,8 @@
 #include <string.h>
 #include <sys/stat.h> /* for stat() */
 
+#include <stdint.h>
+
 extern "C"
 {
 
@@ -36,7 +38,7 @@ struct FLAC
 {
 public:
   FLAC__StreamDecoder* decoder;
-  BYTE* buffer;                         //  buffer to hold the decoded audio data
+  char* buffer;                         //  buffer to hold the decoded audio data
   unsigned int buffersize;              //  size of buffer is filled with decoded audio data
   unsigned int maxframesize;            //  size of a single decoded frame                 
   FLAC():
@@ -175,7 +177,7 @@ AC_INFO* Init(const char* strFile, int track)
 
   //  allocate the buffer to hold the audio data,
   //  it is 5 times bigger then a single decoded frame
-  mod->buffer = new BYTE[mod->maxframesize * 5];
+  mod->buffer = new char[mod->maxframesize * 5];
 
   return info;
 }
@@ -203,7 +205,7 @@ int64_t Seek(AC_INFO* info, int64_t iSeekTime)
 
   FLAC *mod = (FLAC *) info->mod;
   mod->buffersize = 0;
-  FLAC__stream_decoder_seek_absolute(mod->decoder, (__int64)( iSeekTime * info->samplerate) / 1000);
+  FLAC__stream_decoder_seek_absolute(mod->decoder, (int64_t)( iSeekTime * info->samplerate) / 1000);
     //CLog::Log(LOGERROR, "FLACCodec::Seek - failed to seek");
 
   if(FLAC__stream_decoder_get_state(mod->decoder) == FLAC__STREAM_DECODER_SEEK_ERROR)
@@ -292,7 +294,7 @@ FLAC__StreamDecoderWriteStatus DecoderWriteCallback(const FLAC__StreamDecoder *d
   FLAC *mod = (FLAC *) info->mod;
 
   const int bytes_per_sample = frame->header.bits_per_sample / 8;
-  BYTE* outptr = mod->buffer + mod->buffersize;
+  char* outptr = mod->buffer + mod->buffersize;
   FLAC__int16* outptr16 = (FLAC__int16 *) outptr;
   FLAC__int32* outptr32 = (FLAC__int32 *) outptr;
 
@@ -323,7 +325,7 @@ FLAC__StreamDecoderWriteStatus DecoderWriteCallback(const FLAC__StreamDecoder *d
   {
     for(unsigned int i = 0; i < current_sample; i++)
     {
-      BYTE* outptr = mod->buffer + mod->buffersize;
+      char* outptr = mod->buffer + mod->buffersize;
       outptr[i] ^= 0x80;
     }
   }
@@ -344,7 +346,7 @@ void DecoderMetadataCallback(const FLAC__StreamDecoder *decoder, const FLAC__Str
     info->samplerate                   = metadata->data.stream_info.sample_rate;
     info->channels                     = metadata->data.stream_info.channels;
     info->bitpersample                 = metadata->data.stream_info.bits_per_sample;
-    info->totaltime                    = (__int64)metadata->data.stream_info.total_samples * 1000 / metadata->data.stream_info.sample_rate;
+    info->totaltime                    = (int64_t)metadata->data.stream_info.total_samples * 1000 / metadata->data.stream_info.sample_rate;
     ((FLAC *) info->mod)->maxframesize = metadata->data.stream_info.max_blocksize *
       (info->bitpersample / 8) * info->channels;
   }
