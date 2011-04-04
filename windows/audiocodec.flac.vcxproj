@@ -82,6 +82,12 @@
       <OptimizeReferences>true</OptimizeReferences>
       <IgnoreSpecificDefaultLibraries>LIBCMT</IgnoreSpecificDefaultLibraries>
     </Link>
+    <CustomBuildStep>
+      <Command>xcopy $(OutDir)$(TargetName)$(TargetExt) $(SolutionDir)..\addon\</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>$(SolutionDir)..\addon\$(TargetName)$(TargetExt)</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib\flac-1.2.1\src\libFLAC\libFLAC_static.vcxproj">
