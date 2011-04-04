@@ -1,0 +1,2 @@
+; filename			path
+nasm-2.09.07-win32.zip		http://www.nasm.us/pub/nasm/releasebuilds/2.09.07/win32/
